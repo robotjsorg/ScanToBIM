@@ -54,7 +54,7 @@ def writeHeader(out, numPts):
     print >>out, "property float y"
     print >>out, "property float z"
     #print >>out, "property uchar red"
-   # print >>out, "property uchar green"
+    #print >>out, "property uchar green"
     #print >>out, "property uchar blue"
     print >>out, "end_header"
 
@@ -95,12 +95,13 @@ def processFile(datafile):#, imgfile):
     cvtmat = getPC2WorldMatrix(trans, quaternion)
     (base, ext) = os.path.splitext(datafile)
     out = open(base+".xyz", "w")
-    #writeHeader(out, numPts)
+    if datafile == '/home/suriya/Scans//Scan00001.data':
+	print "Worked"
+    	writeHeader(out, numPts)
+    
     data = [];
     for i in xrange(numPts):
         buf = inp.read(3*4)
-        print(buf)
-        print(len(buf))
         if buf == '':
             break
         cam = np.array(struct.unpack("<3f", buf))
@@ -133,7 +134,7 @@ def processFile(datafile):#, imgfile):
 def processDir(dir):
     index = 1
     while True:
-        datafile = "%s\Scan%05d.data" % (dir, index)
+        datafile = "%s/Scan%05d.data" % (dir, index)
         #imgfile = "%s/tango%05d.png" % (dir, index)
         if os.access(datafile, os.R_OK): #and os.access(imgfile, os.R_OK):
             processFile(datafile)#, imgfile)
