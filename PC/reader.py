@@ -99,6 +99,8 @@ def processFile(datafile):#, imgfile):
     data = [];
     for i in xrange(numPts):
         buf = inp.read(3*4)
+        print(buf)
+        print(len(buf))
         if buf == '':
             break
         cam = np.array(struct.unpack("<3f", buf))
@@ -131,7 +133,7 @@ def processFile(datafile):#, imgfile):
 def processDir(dir):
     index = 1
     while True:
-        datafile = "%s/Scan%05d.data" % (dir, index)
+        datafile = "%s\Scan%05d.data" % (dir, index)
         #imgfile = "%s/tango%05d.png" % (dir, index)
         if os.access(datafile, os.R_OK): #and os.access(imgfile, os.R_OK):
             processFile(datafile)#, imgfile)
