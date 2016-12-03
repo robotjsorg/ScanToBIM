@@ -95,7 +95,7 @@ def processFile(datafile):#, imgfile):
     cvtmat = getPC2WorldMatrix(trans, quaternion)
     (base, ext) = os.path.splitext(datafile)
     out = open(base+".xyz", "w")
-    if datafile == '/home/suriya/Scans//Scan00001.data':
+    if datafile == '~/Documents/vulcan-docs/Scans/Scan00001.data':
 	print "Worked"
     	writeHeader(out, numPts)
     

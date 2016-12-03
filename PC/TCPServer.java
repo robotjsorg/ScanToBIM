@@ -44,7 +44,7 @@ public class TCPServer extends Thread {
 				    long fileLength = dis.readLong();
 				    String fileName = dis.readUTF();
 
-				    files[i] = new File("/home/suriya/Scans/" + fileName);
+				    files[i] = new File("~/Documents/vulcan-docs/Scans/" + fileName);
 
 				    FileOutputStream fos = new FileOutputStream(files[i]);
 				    BufferedOutputStream bos = new BufferedOutputStream(fos);
