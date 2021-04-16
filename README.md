@@ -1,4 +1,4 @@
-# vulcan-docs
+# Scan to BIM
 Open the ScanToBIM Android app with Android Studio and deploy it to the Google Tango Peanut.
 
 Start the laptop server by navigating to `vulcan-docs/PC` and running `python __main__.py`.
